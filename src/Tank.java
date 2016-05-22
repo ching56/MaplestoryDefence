@@ -14,12 +14,11 @@ public class Tank extends Warrior implements Runnable{
 		fuckIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftFuck.gif"));
 		deadIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftDead.gif"));
 		damageIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftDamage.png"));
-		standIconRight = new ImageIcon(Dragon.class.getClass().getResource("/DragonRightStand.gif"));
-		moveIconRight = new ImageIcon(Dragon.class.getClass().getResource("/DragonRightMove.gif"));
-		fuckIconRight = new ImageIcon(Dragon.class.getClass().getResource("/DragonRightFuck.gif"));
-		deadIconRight = new ImageIcon(Dragon.class.getClass().getResource("/DragonRightDead.gif"));
-		damageIconRight = new ImageIcon(Dragon.class.getClass().getResource("/DragonRightDamage.gif"));
-		
+		standIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightStand.gif"));
+		moveIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightMove.gif"));
+		fuckIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightFuck.gif"));
+		deadIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightDead.gif"));
+		damageIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightDamage.png"));
 		hp = 2;
 		fkDistance = 45; 
 		speed = 5;
@@ -28,6 +27,7 @@ public class Tank extends Warrior implements Runnable{
 		deadTime = 750;
 		damageTime = 500;
 	}
+
 
 	public void run() {
 		t = new Tank(direction,win);
@@ -58,7 +58,10 @@ public class Tank extends Warrior implements Runnable{
 			}
 		
 			if(isFuck){
-				t.setLocation(t.Xposition-100,t.Yposition-20);
+				if(t.direction.equals("left"))
+					t.setLocation(t.Xposition-100,t.Yposition-20);
+				else
+					t.setLocation(t.Xposition,t.Yposition-20);
 				t.fuck();
 				t.setLocation(t.Xposition,t.Yposition);
 				setMove();

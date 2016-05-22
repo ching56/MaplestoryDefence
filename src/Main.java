@@ -12,13 +12,14 @@ public class Main {
 		Thread thread2 = new Thread(dragon2);
 		Tank tank = new Tank("left", window);
 		Thread thread3 = new Thread(tank);
+		Tank tank2 = new Tank("right", window);
+		Thread thread4 = new Thread(tank2);
 		
 		thread1.start();
 		thread2.start();
 		thread3.start();
+		thread4.start();
 		window.setVisible(true);
-		
-		
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -29,6 +30,7 @@ public class Main {
 		dragon.setDamage();
 		dragon2.setFuck();
 		tank.setFuck();
+		tank2.setFuck();
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -46,5 +48,6 @@ public class Main {
 			e.printStackTrace();
 		}
 		tank.setDamage();
+		
 	}
 }
