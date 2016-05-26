@@ -33,6 +33,7 @@ public class Dragon extends Warrior implements Runnable{
 		d = new Dragon(direction,win);
 		win.add(d);
 		d.summon();
+		
 		setMove();
 		
 		while(true){

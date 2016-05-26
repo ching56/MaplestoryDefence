@@ -1,5 +1,4 @@
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public abstract class Warrior extends JLabel implements Runnable{
@@ -43,7 +42,7 @@ public abstract class Warrior extends JLabel implements Runnable{
 	
 	public Warrior(String direction) {
 		this.direction = direction;
-		setBounds(1280, 720, 250, 250);
+		setBounds(1280, 720, 400, 250);
 		if(direction.equals("right"))
 			Xposition = X_STAGE_LEFT;
 		else if (direction.equals("left"))
@@ -62,6 +61,12 @@ public abstract class Warrior extends JLabel implements Runnable{
 			setIcon(standIconRight);
 		}
 		state = "stand";
+		try {
+			Thread.sleep(standTime);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

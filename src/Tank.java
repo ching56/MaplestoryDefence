@@ -9,16 +9,16 @@ public class Tank extends Warrior implements Runnable{
 		super(direction);
 		// TODO Auto-generated constructor stub
 		win=w;
-		standIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftStand.gif"));
-		moveIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftMove.gif"));
-		fuckIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftFuck.gif"));
-		deadIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftDead.gif"));
-		damageIconLeft = new ImageIcon(Dragon.class.getClass().getResource("/TankLeftDamage.png"));
-		standIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightStand.gif"));
-		moveIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightMove.gif"));
-		fuckIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightFuck.gif"));
-		deadIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightDead.gif"));
-		damageIconRight = new ImageIcon(Dragon.class.getClass().getResource("/TankRightDamage.png"));
+		standIconLeft = new ImageIcon(Tank.class.getClass().getResource("/TankLeftStand.gif"));
+		moveIconLeft = new ImageIcon(Tank.class.getClass().getResource("/TankLeftMove.gif"));
+		fuckIconLeft = new ImageIcon(Tank.class.getClass().getResource("/TankLeftFuck.gif"));
+		deadIconLeft = new ImageIcon(Tank.class.getClass().getResource("/TankLeftDead.gif"));
+		damageIconLeft = new ImageIcon(Tank.class.getClass().getResource("/TankLeftDamage.png"));
+		standIconRight = new ImageIcon(Tank.class.getClass().getResource("/TankRightStand.gif"));
+		moveIconRight = new ImageIcon(Tank.class.getClass().getResource("/TankRightMove.gif"));
+		fuckIconRight = new ImageIcon(Tank.class.getClass().getResource("/TankRightFuck.gif"));
+		deadIconRight = new ImageIcon(Tank.class.getClass().getResource("/TankRightDead.gif"));
+		damageIconRight = new ImageIcon(Tank.class.getClass().getResource("/TankRightDamage.png"));
 		hp = 2;
 		fkDistance = 45; 
 		speed = 5;
@@ -33,6 +33,12 @@ public class Tank extends Warrior implements Runnable{
 		t = new Tank(direction,win);
 		win.add(t);
 		t.summon();
+		try {
+			Thread.sleep(standTime);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		setMove();
 	
 		while(true){
